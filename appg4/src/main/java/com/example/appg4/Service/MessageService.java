@@ -34,6 +34,8 @@ public class MessageService {
         }
     }
 
+    //Reto 4: Validaciones
+    //PUT
     public Message update(Message message) {
         if (message.getIdMessage() != null) {
             Optional<Message> messageEncontrado = getMessage(message.getIdMessage());
@@ -50,6 +52,7 @@ public class MessageService {
         }
     }
 
+    //DELETE
     public boolean deleteMessage (int id) {
         Boolean respuesta = getMessage(id).map(message -> {
             messageRepository.delete(message);

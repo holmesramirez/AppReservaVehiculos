@@ -34,6 +34,8 @@ public class CarService {
         }
     }
 
+    //Reto 4: Validaciones
+    //PUT
     public Car update(Car car) {
         if (car.getIdCar() != null) {
             Optional<Car> carEncontrado = getCar(car.getIdCar());
@@ -62,6 +64,7 @@ public class CarService {
         }
     }
 
+    //DELETE
     public boolean deleteCar (int id) {
         Boolean respuesta = getCar(id).map(car -> {
             carRepository.delete(car);
@@ -69,5 +72,6 @@ public class CarService {
         }).orElse(false);
         return respuesta;
     }
+
 
 }

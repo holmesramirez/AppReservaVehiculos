@@ -36,6 +36,8 @@ public class ClientService {
         }
     }
 
+    //Reto 4: Validaciones
+    // PUT
     public Client update(Client client) {
         if (client.getIdClient() != null) {
             Optional<Client> clientEncontrado = getClient(client.getIdClient());
@@ -61,6 +63,7 @@ public class ClientService {
         }
     }
 
+    //DELETE
     public boolean deleteClient (int id) {
         Boolean respuesta = getClient(id).map(client -> {
             clientRepository.delete(client);

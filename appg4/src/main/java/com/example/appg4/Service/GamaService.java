@@ -36,6 +36,8 @@ public class GamaService {
         }
     }
 
+    //Reto 4: Validaciones
+    //PUT
     public Gama update(Gama gama) {
         if (gama.getIdGama() != null) {
             Optional<Gama> gamaEncontrada = getGama(gama.getIdGama());
@@ -55,6 +57,7 @@ public class GamaService {
         }
     }
 
+    //DELETE
     public boolean deleteGama (int id) {
         Boolean respuesta = getGama(id).map(gama -> {
             gamaRepository.delete(gama);

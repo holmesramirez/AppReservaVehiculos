@@ -1,6 +1,7 @@
 package com.example.appg4.Controller;
 
 import com.example.appg4.Model.Client;
+import com.example.appg4.Model.Client;
 import com.example.appg4.Service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,18 @@ public class ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client) {
         return clientService.save(client);
+    }
+
+    //Reto 4: PUT y DELETE
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client client) {
+        return clientService.update(client);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable int id){
+        return clientService.deleteClient(id);
     }
 }

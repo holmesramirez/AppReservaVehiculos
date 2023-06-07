@@ -34,6 +34,8 @@ public class ScoreService {
         }
     }
 
+    //Resto 4: Validaciones
+    //PUT
     public Score update(Score score) {
         if (score.getIdScore() != null) {
             Optional<Score> scoreEncontrado = getScore(score.getIdScore());
@@ -53,6 +55,7 @@ public class ScoreService {
         }
     }
 
+    //DELETE
     public boolean deleteScore (int id) {
         Boolean respuesta = getScore(id).map(score -> {
             scoreRepository.delete(score);

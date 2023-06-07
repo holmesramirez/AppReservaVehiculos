@@ -21,6 +21,7 @@ public class ReservationService {
         return reservationRepository.findById(id);
     }
 
+    //SAVE
     public Reservation save(Reservation reservation){
         if (reservation.getIdReservation()==null){
             return reservationRepository.save(reservation);
@@ -34,6 +35,8 @@ public class ReservationService {
         }
     }
 
+    //Reto 4: Validaciones
+    //PUT
     public Reservation update(Reservation reservation) {
         if (reservation.getIdReservation() != null) {
             Optional<Reservation> reservationEncontrado = getReservation(reservation.getIdReservation());
@@ -56,6 +59,7 @@ public class ReservationService {
         }
     }
 
+    //DELETE
     public boolean deleteReservation (int id) {
         Boolean respuesta = getReservation(id).map(reservation -> {
             reservationRepository.delete(reservation);

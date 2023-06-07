@@ -1,6 +1,7 @@
 package com.example.appg4.Controller;
 
 import com.example.appg4.Model.Reservation;
+import com.example.appg4.Model.Reservation;
 import com.example.appg4.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,19 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation reservation) {
         return reservationService.save(reservation);
+    }
+
+    //Reto 4: PUT y DELETE
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation reservation) {
+        return reservationService.update(reservation);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable int id){
+        return reservationService.deleteReservation(id);
     }
 }
 
