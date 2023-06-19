@@ -1,5 +1,7 @@
 package com.example.appg4.Controller;
 
+import com.example.appg4.Model.DTOs.CompletedAndCancelled;
+import com.example.appg4.Model.DTOs.TotalAndClient;
 import com.example.appg4.Model.Reservation;
 import com.example.appg4.Model.Reservation;
 import com.example.appg4.Service.ReservationService;
@@ -45,5 +47,22 @@ public class ReservationController {
     public boolean delete(@PathVariable int id){
         return reservationService.deleteReservation(id);
     }
-}
+
+    //RETO 5
+    @GetMapping("/report-dates/{fecha1}/{fecha2}/")
+    public List<Reservation> getReservationsBetweenDatesReport(@PathVariable("fecha") String fecha1, @PathVariable("fecha2") String fecha2){
+        return reservationService.getResertvationBetweenDatesReport(fecha1, fecha2);
+    }
+
+    @GetMapping("/report-status")
+    public CompletedAndCancelled getReservationsStatusReport(){
+        return reservationService.getReservationStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+        public List<TotalAndClient> getTopClientsReport(){
+            return reservationService.getTopClientsReport();
+        }
+    }
+
 
